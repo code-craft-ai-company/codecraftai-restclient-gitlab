@@ -12,6 +12,20 @@
             "console": "integratedTerminal",
             "justMyCode": false,
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Python: Client Generator",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/source/packages/automojo/gitlab/rest/generation/restclientgenerator.py",
+            "args": [
+                "--client-classname=GitLabRestClient",
+                "--client-root=${workspaceFolder}/source/packages/automojo/gitlab/rest/clients",
+                "--specfile=${workspaceFolder}/source/packages/automojo/gitlab/rest/descriptions/gitlab-openapi-spec.yaml"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

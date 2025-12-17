@@ -1,0 +1,195 @@
+paths:
+  /admin/batched_background_migrations:
+    get:
+      operationId: list_batched_background_migrations
+  /admin/batched_background_migrations/{id}:
+    get:
+      operationId: get_batched_background_migrations_by_id
+  /admin/batched_background_migrations/{id}/pause:
+    put:
+      operationId: pause_batched_background_migrations
+  /admin/batched_background_migrations/{id}/resume:
+    put:
+      operationId: resume_batched_background_migrations
+  /admin/ci/variables:
+    get:
+      operationId: list_variables
+    post:
+      operationId: update_variables
+  /admin/ci/variables/{key}:
+    delete:
+      operationId: delete_variable
+    get:
+      operationId: get_variable
+    put:
+      operationId: set_variable
+  /admin/clusters:
+    get:
+      operationId: list
+  /admin/clusters/add:
+    post:
+      operationId: add_cluster
+  /admin/clusters/{cluster_id}:
+    delete:
+      operationId: delete_cluster
+    get:
+      operationId: get_cluster
+    put:
+      operationId: update_cluster
+  /admin/databases/{database_name}/dictionary/tables/{table_name}:
+    get:
+      operationId: getApiV4AdminDatabasesDatabaseNameDictionaryTablesTableName
+  /admin/migrations/{timestamp}/mark:
+    post:
+      operationId: postApiV4AdminMigrationsTimestampMark
+  /application/appearance:
+    get:
+      operationId: get_appearance
+    put:
+      operationId: set_appearance
+  /application/plan_limits:
+    get:
+      operationId: get_plan_limits
+    put:
+      operationId: set_plan_limits
+  /applications:
+    get:
+      operationId: list_applications
+    post:
+      operationId: add_applications
+  /applications/{id}:
+    delete:
+      operationId: delete_application
+  /avatar:
+    get:
+      operationId: get_avatar
+  /broadcast_messages:
+    get:
+      operationId: get_broadcast_messages
+    post:
+      operationId: add_broadcast_messages
+  /broadcast_messages/{id}:
+    delete:
+      operationId: delete_broadcast_message
+    get:
+      operationId: get_broadcast_message
+    put:
+      operationId: update_broadcast_message
+  /bulk_imports:
+    get:
+      operationId: list_bulk_imports
+    post:
+      operationId: add_bulk_import
+  /bulk_imports/entities:
+    get:
+      operationId: list_bulk_imports_entities
+  /bulk_imports/{import_id}:
+    get:
+      operationId: get_bulk_imports
+  /bulk_imports/{import_id}/entities:
+    get:
+      operationId: list_bulk_imports_entities
+  /bulk_imports/{import_id}/entities/{entity_id}:
+    get:
+      operationId: get_bulk_imports_entities
+  /groups/{id}/access_requests:
+    get:
+      operationId: list_access_requests
+    post:
+      operationId: add_access_request
+  /groups/{id}/access_requests/{user_id}:
+    delete:
+      operationId: delete_access_request
+  /groups/{id}/access_requests/{user_id}/approve:
+    put:
+      operationId: approve_access_request
+  /groups/{id}/badges:
+    get:
+      operationId: list_badges
+    post:
+      operationId: add_badge
+  /groups/{id}/badges/render:
+    get:
+      operationId: render_badges
+  /groups/{id}/badges/{badge_id}:
+    delete:
+      operationId: delete_badge
+    get:
+      operationId: get_badge
+    put:
+      operationId: update_badge
+  /metadata:
+    get:
+      operationId: get_metadata
+  /projects/{id}/access_requests:
+    get:
+      operationId: list_access_requests
+    post:
+      operationId: add_access_request
+  /projects/{id}/access_requests/{user_id}:
+    delete:
+      operationId: delete_access_request
+  /projects/{id}/access_requests/{user_id}/approve:
+    put:
+      operationId: approve_access_request
+  /projects/{id}/alert_management_alerts/{alert_iid}/metric_images:
+    get:
+      operationId: get_metric_images
+    post:
+      operationId: update_metric_images
+  /projects/{id}/alert_management_alerts/{alert_iid}/metric_images/authorize:
+    post:
+      operationId: authorize_metric_images
+  /projects/{id}/alert_management_alerts/{alert_iid}/metric_images/{metric_image_id}:
+    delete:
+      operationId: delete_metric_image
+    put:
+      operationId: update_metric_image
+  /projects/{id}/badges:
+    get:
+      operationId: list_badges
+    post:
+      operationId: create_badges
+  /projects/{id}/badges/render:
+    get:
+      operationId: render_badges
+  /projects/{id}/badges/{badge_id}:
+    delete:
+      operationId: delete_badge
+    get:
+      operationId: get_badge
+    put:
+      operationId: update_badge
+  /projects/{id}/jobs:
+    get:
+      operationId: list_jobs
+  /projects/{id}/jobs/{job_id}:
+    get:
+      operationId: get_job
+  /projects/{id}/jobs/{job_id}/play:
+    post:
+      operationId: play_job
+  /projects/{id}/repository/branches:
+    get:
+      operationId: list_branches
+    post:
+      operationId: create_branche
+  /projects/{id}/repository/branches/{branch}:
+    delete:
+      operationId: delete_branche
+    get:
+      operationId: get_branch
+    head:
+      operationId: has_branch
+  /projects/{id}/repository/branches/{branch}/protect:
+    put:
+      operationId: protect
+  /projects/{id}/repository/branches/{branch}/unprotect:
+    put:
+      operationId: unprotect
+  /projects/{id}/repository/merged_branches:
+    delete:
+      operationId: delete_repository_merged_branches
+  /version:
+    get:
+      operationId: get_version
