@@ -2,24 +2,24 @@
 
 from typing import Optional
 
-from automojo.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from automojo.github.rest.restapigroup import RestApiGroup
-from automojo.github.rest.clients.public.parameters import application as parameters
-from automojo.github.rest.clients.public.responses import application as responses
+from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.github.rest.restapigroup import RestApiGroup
+from ccai.github.rest.clients.public.parameters import metadata as parameters
+from ccai.github.rest.clients.public.responses import metadata as responses
 
 
-class ApplicationApiGroup(RestApiGroup):
+class MetadataApiGroup(RestApiGroup):
     """
-        Operations about applications
+        Operations related to metadata of the GitLab instance
     """
 
-    def getapiv4applicationappearance(self, params: Optional[parameters.ApplicationGetapiv4applicationappearanceParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.ApplicationGetapiv4applicationappearanceResponse:
+    def getapiv4metadata(self, params: Optional[parameters.MetadataGetapiv4metadataParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.MetadataGetapiv4metadataResponse:
         """
-            Get the current appearance
+            Retrieve metadata information for this GitLab instance
         """
         if params is None:
-            params = parameters.ApplicationGetapiv4applicationappearanceParams()
-        call_leaf = "/application/appearance"
+            params = parameters.MetadataGetapiv4metadataParams()
+        call_leaf = "/metadata"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
@@ -37,16 +37,16 @@ class ApplicationApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.ApplicationGetapiv4applicationappearanceResponse(resp)
+        result = responses.MetadataGetapiv4metadataResponse(resp)
         return result
 
-    def putapiv4applicationappearance(self, params: Optional[parameters.ApplicationPutapiv4applicationappearanceParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.ApplicationPutapiv4applicationappearanceResponse:
+    def getapiv4version(self, params: Optional[parameters.MetadataGetapiv4versionParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.MetadataGetapiv4versionResponse:
         """
-            Modify appearance
+            Retrieves version information for the GitLab instance
         """
         if params is None:
-            params = parameters.ApplicationPutapiv4applicationappearanceParams()
-        call_leaf = "/application/appearance"
+            params = parameters.MetadataGetapiv4versionParams()
+        call_leaf = "/version"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
@@ -56,7 +56,7 @@ class ApplicationApiGroup(RestApiGroup):
         exp_status = [200]
         resp = self.client.perform_call(
             leaf=call_leaf,
-            method="PUT",
+            method="GET",
             params=query_params if query_params else None,
             body=body_params,
             exp_status=exp_status,
@@ -64,5 +64,5 @@ class ApplicationApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.ApplicationPutapiv4applicationappearanceResponse(resp)
+        result = responses.MetadataGetapiv4versionResponse(resp)
         return result

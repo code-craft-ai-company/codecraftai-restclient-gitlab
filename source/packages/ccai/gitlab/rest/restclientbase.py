@@ -9,7 +9,7 @@
 
 
 __author__ = "Myron Walker"
-__copyright__ = "Copyright 2025, Automation Mojo LLC"
+__copyright__ = "Copyright 2025, Code Craft AI LLC"
 __credits__ = []
 
 
@@ -24,15 +24,15 @@ from http import HTTPStatus
 from requests import Session, Response, Request
 from requests.adapters import HTTPAdapter
 
-from automojo.errors.exceptions import HttpForbiddenError
-from automojo.errors.raising import format_http_error_message, raise_for_http_status
+from ccai.errors.exceptions import HttpForbiddenError
+from ccai.errors.raising import format_http_error_message, raise_for_http_status
 
-from automojo.credentials.basecredential import BaseCredential
-from automojo.credentials.basiccredential import BasicCredential
+from ccai.credentials.basecredential import BaseCredential
+from ccai.credentials.basiccredential import BasicCredential
 
-from automojo.github.rest.aspectsrest import AspectsRest, LoggingPattern, DEFAULT_REST_ASPECTS
+from ccai.github.rest.aspectsrest import AspectsRest, LoggingPattern, DEFAULT_REST_ASPECTS
 
-from automojo.github.rest.aspectsrest import ActionPattern
+from ccai.github.rest.aspectsrest import ActionPattern
 
 
 class RestClientBase:

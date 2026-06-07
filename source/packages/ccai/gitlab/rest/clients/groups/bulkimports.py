@@ -2,10 +2,10 @@
 
 from typing import Optional
 
-from automojo.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from automojo.github.rest.restapigroup import RestApiGroup
-from automojo.github.rest.clients.public.parameters import bulkimports as parameters
-from automojo.github.rest.clients.public.responses import bulkimports as responses
+from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.github.rest.restapigroup import RestApiGroup
+from ccai.github.rest.clients.public.parameters import bulkimports as parameters
+from ccai.github.rest.clients.public.responses import bulkimports as responses
 
 
 class BulkImportsApiGroup(RestApiGroup):

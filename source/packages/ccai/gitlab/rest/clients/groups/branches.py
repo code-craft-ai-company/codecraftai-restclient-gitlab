@@ -2,10 +2,10 @@
 
 from typing import Optional
 
-from automojo.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from automojo.github.rest.restapigroup import RestApiGroup
-from automojo.github.rest.clients.public.parameters import branches as parameters
-from automojo.github.rest.clients.public.responses import branches as responses
+from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.github.rest.restapigroup import RestApiGroup
+from ccai.github.rest.clients.public.parameters import branches as parameters
+from ccai.github.rest.clients.public.responses import branches as responses
 
 
 class BranchesApiGroup(RestApiGroup):

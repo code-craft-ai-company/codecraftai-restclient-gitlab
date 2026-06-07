@@ -17,11 +17,11 @@
             "name": "Python: Client Generator",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/source/packages/automojo/gitlab/rest/generation/restclientgenerator.py",
+            "program": "${workspaceFolder}/source/packages/ccai/gitlab/rest/generation/restclientgenerator.py",
             "args": [
                 "--client-classname=GitLabRestClient",
-                "--client-root=${workspaceFolder}/source/packages/automojo/gitlab/rest/clients",
-                "--specfile=${workspaceFolder}/source/packages/automojo/gitlab/rest/descriptions/gitlab-openapi-spec.yaml"
+                "--client-root=${workspaceFolder}/source/packages/ccai/gitlab/rest/clients",
+                "--specfile=${workspaceFolder}/source/packages/ccai/gitlab/rest/descriptions/gitlab-openapi-spec.yaml"
             ],
             "console": "integratedTerminal",
             "justMyCode": false,

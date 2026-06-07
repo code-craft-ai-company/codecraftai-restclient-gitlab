@@ -1,8 +1,8 @@
 =======================
-Automation Mojo GitLab
+Code Craft AI GitLab
 =======================
 
-The ``automojo-gitlab`` package is the GitLab REST client for the automojo suite. It follows the same shape as ``automojo-restclient-github-public`` — building on ``automojo-restclient-base`` — but targets the GitLab REST API instead.
+The ``codecraftai-gitlab`` package is the GitLab REST client for the ccai suite. It follows the same shape as ``codecraftai-restclient-github-public`` — building on ``codecraftai-restclient-base`` — but targets the GitLab REST API instead.
 
 Highlights
 ==========
@@ -52,7 +52,7 @@ Run TestBase tests (when test roots are populated):
 
 .. code-block:: bash
 
-   testbase testing run --root source/testroots/testbase --includes=automojo --output=./.output
+   testbase testing run --root source/testroots/testbase --includes=ccai --output=./.output
 
 Standards and Conventions
 =========================

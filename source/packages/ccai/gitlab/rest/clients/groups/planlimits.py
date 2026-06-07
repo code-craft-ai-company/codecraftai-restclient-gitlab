@@ -2,24 +2,24 @@
 
 from typing import Optional
 
-from automojo.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from automojo.github.rest.restapigroup import RestApiGroup
-from automojo.github.rest.clients.public.parameters import metadata as parameters
-from automojo.github.rest.clients.public.responses import metadata as responses
+from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.github.rest.restapigroup import RestApiGroup
+from ccai.github.rest.clients.public.parameters import planlimits as parameters
+from ccai.github.rest.clients.public.responses import planlimits as responses
 
 
-class MetadataApiGroup(RestApiGroup):
+class PlanLimitsApiGroup(RestApiGroup):
     """
-        Operations related to metadata of the GitLab instance
+        Operations related to plan limits
     """
 
-    def getapiv4metadata(self, params: Optional[parameters.MetadataGetapiv4metadataParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.MetadataGetapiv4metadataResponse:
+    def getapiv4applicationplanlimits(self, params: Optional[parameters.PlanLimitsGetapiv4applicationplanlimitsParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.PlanLimitsGetapiv4applicationplanlimitsResponse:
         """
-            Retrieve metadata information for this GitLab instance
+            Get current plan limits
         """
         if params is None:
-            params = parameters.MetadataGetapiv4metadataParams()
-        call_leaf = "/metadata"
+            params = parameters.PlanLimitsGetapiv4applicationplanlimitsParams()
+        call_leaf = "/application/plan_limits"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
@@ -37,16 +37,16 @@ class MetadataApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.MetadataGetapiv4metadataResponse(resp)
+        result = responses.PlanLimitsGetapiv4applicationplanlimitsResponse(resp)
         return result
 
-    def getapiv4version(self, params: Optional[parameters.MetadataGetapiv4versionParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.MetadataGetapiv4versionResponse:
+    def putapiv4applicationplanlimits(self, params: Optional[parameters.PlanLimitsPutapiv4applicationplanlimitsParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.PlanLimitsPutapiv4applicationplanlimitsResponse:
         """
-            Retrieves version information for the GitLab instance
+            Change plan limits
         """
         if params is None:
-            params = parameters.MetadataGetapiv4versionParams()
-        call_leaf = "/version"
+            params = parameters.PlanLimitsPutapiv4applicationplanlimitsParams()
+        call_leaf = "/application/plan_limits"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
@@ -56,7 +56,7 @@ class MetadataApiGroup(RestApiGroup):
         exp_status = [200]
         resp = self.client.perform_call(
             leaf=call_leaf,
-            method="GET",
+            method="PUT",
             params=query_params if query_params else None,
             body=body_params,
             exp_status=exp_status,
@@ -64,5 +64,5 @@ class MetadataApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.MetadataGetapiv4versionResponse(resp)
+        result = responses.PlanLimitsPutapiv4applicationplanlimitsResponse(resp)
         return result

@@ -4,26 +4,26 @@ from typing import Optional
 
 import weakref
 
-from automojo.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from automojo.github.rest.restclientbase import RestClientBase
-from automojo.credentials.basecredential import BaseCredential
-from automojo.github.rest.clients.public.groups.accessrequests import AccessRequestsApiGroup
-from automojo.github.rest.clients.public.groups.admin import AdminApiGroup
-from automojo.github.rest.clients.public.groups.alertmanagement import AlertManagementApiGroup
-from automojo.github.rest.clients.public.groups.application import ApplicationApiGroup
-from automojo.github.rest.clients.public.groups.applications import ApplicationsApiGroup
-from automojo.github.rest.clients.public.groups.avatar import AvatarApiGroup
-from automojo.github.rest.clients.public.groups.badges import BadgesApiGroup
-from automojo.github.rest.clients.public.groups.batchedbackgroundmigrations import BatchedBackgroundMigrationsApiGroup
-from automojo.github.rest.clients.public.groups.branches import BranchesApiGroup
-from automojo.github.rest.clients.public.groups.broadcastmessages import BroadcastMessagesApiGroup
-from automojo.github.rest.clients.public.groups.bulkimports import BulkImportsApiGroup
-from automojo.github.rest.clients.public.groups.clusters import ClustersApiGroup
-from automojo.github.rest.clients.public.groups.jobs import JobsApiGroup
-from automojo.github.rest.clients.public.groups.metadata import MetadataApiGroup
-from automojo.github.rest.clients.public.groups.migrations import MigrationsApiGroup
-from automojo.github.rest.clients.public.groups.pipelinecomposition import PipelineCompositionApiGroup
-from automojo.github.rest.clients.public.groups.planlimits import PlanLimitsApiGroup
+from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.github.rest.restclientbase import RestClientBase
+from ccai.credentials.basecredential import BaseCredential
+from ccai.github.rest.clients.public.groups.accessrequests import AccessRequestsApiGroup
+from ccai.github.rest.clients.public.groups.admin import AdminApiGroup
+from ccai.github.rest.clients.public.groups.alertmanagement import AlertManagementApiGroup
+from ccai.github.rest.clients.public.groups.application import ApplicationApiGroup
+from ccai.github.rest.clients.public.groups.applications import ApplicationsApiGroup
+from ccai.github.rest.clients.public.groups.avatar import AvatarApiGroup
+from ccai.github.rest.clients.public.groups.badges import BadgesApiGroup
+from ccai.github.rest.clients.public.groups.batchedbackgroundmigrations import BatchedBackgroundMigrationsApiGroup
+from ccai.github.rest.clients.public.groups.branches import BranchesApiGroup
+from ccai.github.rest.clients.public.groups.broadcastmessages import BroadcastMessagesApiGroup
+from ccai.github.rest.clients.public.groups.bulkimports import BulkImportsApiGroup
+from ccai.github.rest.clients.public.groups.clusters import ClustersApiGroup
+from ccai.github.rest.clients.public.groups.jobs import JobsApiGroup
+from ccai.github.rest.clients.public.groups.metadata import MetadataApiGroup
+from ccai.github.rest.clients.public.groups.migrations import MigrationsApiGroup
+from ccai.github.rest.clients.public.groups.pipelinecomposition import PipelineCompositionApiGroup
+from ccai.github.rest.clients.public.groups.planlimits import PlanLimitsApiGroup
 
 
 class GitLabRestClient(RestClientBase):

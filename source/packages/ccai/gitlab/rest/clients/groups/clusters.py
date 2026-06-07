@@ -2,31 +2,31 @@
 
 from typing import Optional
 
-from automojo.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from automojo.github.rest.restapigroup import RestApiGroup
-from automojo.github.rest.clients.public.parameters import broadcastmessages as parameters
-from automojo.github.rest.clients.public.responses import broadcastmessages as responses
+from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.github.rest.restapigroup import RestApiGroup
+from ccai.github.rest.clients.public.parameters import clusters as parameters
+from ccai.github.rest.clients.public.responses import clusters as responses
 
 
-class BroadcastMessagesApiGroup(RestApiGroup):
+class ClustersApiGroup(RestApiGroup):
     """
-        Operations about broadcast_messages
+        Operations related to clusters
     """
 
-    def deleteapiv4broadcastmessagesid(self, params: Optional[parameters.BroadcastMessagesDeleteapiv4broadcastmessagesidParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.BroadcastMessagesDeleteapiv4broadcastmessagesidResponse:
+    def deleteapiv4adminclustersclusterid(self, params: Optional[parameters.ClustersDeleteapiv4adminclustersclusteridParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.ClustersDeleteapiv4adminclustersclusteridResponse:
         """
-            Delete a broadcast message
+            Delete instance cluster
         """
         if params is None:
-            params = parameters.BroadcastMessagesDeleteapiv4broadcastmessagesidParams()
-        call_leaf = "/broadcast_messages/{id}"
+            params = parameters.ClustersDeleteapiv4adminclustersclusteridParams()
+        call_leaf = "/admin/clusters/{cluster_id}"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
         query_params = params.query_params()
         header_params = params.header_params()
         body_params = params.body_params()
-        exp_status = [200]
+        exp_status = [204]
         resp = self.client.perform_call(
             leaf=call_leaf,
             method="DELETE",
@@ -37,16 +37,16 @@ class BroadcastMessagesApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.BroadcastMessagesDeleteapiv4broadcastmessagesidResponse(resp)
+        result = responses.ClustersDeleteapiv4adminclustersclusteridResponse(resp)
         return result
 
-    def getapiv4broadcastmessages(self, params: Optional[parameters.BroadcastMessagesGetapiv4broadcastmessagesParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.BroadcastMessagesGetapiv4broadcastmessagesResponse:
+    def getapiv4adminclusters(self, params: Optional[parameters.ClustersGetapiv4adminclustersParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.ClustersGetapiv4adminclustersResponse:
         """
-            Get all broadcast messages
+            List instance clusters
         """
         if params is None:
-            params = parameters.BroadcastMessagesGetapiv4broadcastmessagesParams()
-        call_leaf = "/broadcast_messages"
+            params = parameters.ClustersGetapiv4adminclustersParams()
+        call_leaf = "/admin/clusters"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
@@ -64,16 +64,16 @@ class BroadcastMessagesApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.BroadcastMessagesGetapiv4broadcastmessagesResponse(resp)
+        result = responses.ClustersGetapiv4adminclustersResponse(resp)
         return result
 
-    def getapiv4broadcastmessagesid(self, params: Optional[parameters.BroadcastMessagesGetapiv4broadcastmessagesidParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.BroadcastMessagesGetapiv4broadcastmessagesidResponse:
+    def getapiv4adminclustersclusterid(self, params: Optional[parameters.ClustersGetapiv4adminclustersclusteridParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.ClustersGetapiv4adminclustersclusteridResponse:
         """
-            Get a specific broadcast message
+            Get a single instance cluster
         """
         if params is None:
-            params = parameters.BroadcastMessagesGetapiv4broadcastmessagesidParams()
-        call_leaf = "/broadcast_messages/{id}"
+            params = parameters.ClustersGetapiv4adminclustersclusteridParams()
+        call_leaf = "/admin/clusters/{cluster_id}"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
@@ -91,16 +91,16 @@ class BroadcastMessagesApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.BroadcastMessagesGetapiv4broadcastmessagesidResponse(resp)
+        result = responses.ClustersGetapiv4adminclustersclusteridResponse(resp)
         return result
 
-    def postapiv4broadcastmessages(self, params: Optional[parameters.BroadcastMessagesPostapiv4broadcastmessagesParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.BroadcastMessagesPostapiv4broadcastmessagesResponse:
+    def postapiv4adminclustersadd(self, params: Optional[parameters.ClustersPostapiv4adminclustersaddParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.ClustersPostapiv4adminclustersaddResponse:
         """
-            Create a broadcast message
+            Add existing instance cluster
         """
         if params is None:
-            params = parameters.BroadcastMessagesPostapiv4broadcastmessagesParams()
-        call_leaf = "/broadcast_messages"
+            params = parameters.ClustersPostapiv4adminclustersaddParams()
+        call_leaf = "/admin/clusters/add"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
@@ -118,16 +118,16 @@ class BroadcastMessagesApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.BroadcastMessagesPostapiv4broadcastmessagesResponse(resp)
+        result = responses.ClustersPostapiv4adminclustersaddResponse(resp)
         return result
 
-    def putapiv4broadcastmessagesid(self, params: Optional[parameters.BroadcastMessagesPutapiv4broadcastmessagesidParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.BroadcastMessagesPutapiv4broadcastmessagesidResponse:
+    def putapiv4adminclustersclusterid(self, params: Optional[parameters.ClustersPutapiv4adminclustersclusteridParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.ClustersPutapiv4adminclustersclusteridResponse:
         """
-            Update a broadcast message
+            Edit instance cluster
         """
         if params is None:
-            params = parameters.BroadcastMessagesPutapiv4broadcastmessagesidParams()
-        call_leaf = "/broadcast_messages/{id}"
+            params = parameters.ClustersPutapiv4adminclustersclusteridParams()
+        call_leaf = "/admin/clusters/{cluster_id}"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
@@ -145,5 +145,5 @@ class BroadcastMessagesApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.BroadcastMessagesPutapiv4broadcastmessagesidResponse(resp)
+        result = responses.ClustersPutapiv4adminclustersclusteridResponse(resp)
         return result

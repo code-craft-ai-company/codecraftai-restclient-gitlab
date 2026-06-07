@@ -7,7 +7,7 @@
 """
 
 __author__ = "Myron Walker"
-__copyright__ = "Copyright 2025, Automation Mojo LLC"
+__copyright__ = "Copyright 2025, Code Craft AI LLC"
 __credits__ = []
 
 
@@ -15,7 +15,7 @@ from typing import Any, Callable, Dict, Generic, List, Optional, TypeVar, Union
 
 from requests import Response
 
-from automojo.github.rest.aspectsrest import AspectsRest
+from ccai.github.rest.aspectsrest import AspectsRest
 
 
 CT = TypeVar("CT")

@@ -184,8 +184,8 @@
 #### 3.1.2 Dependencies
 - **REQ-110**: The system SHALL use the requests library for HTTP communication
 - **REQ-111**: The system SHALL use PyYAML for YAML specification parsing
-- **REQ-112**: The system SHALL integrate with automojo-errors for error handling
-- **REQ-113**: The system SHALL integrate with automojo-credentials for authentication
+- **REQ-112**: The system SHALL integrate with codecraftai-errors for error handling
+- **REQ-113**: The system SHALL integrate with codecraftai-credentials for authentication
 - **REQ-114**: The system SHALL minimize external dependencies to reduce complexity
 
 ### 3.2 Integration Requirements

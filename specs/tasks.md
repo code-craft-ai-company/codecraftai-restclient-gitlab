@@ -485,7 +485,7 @@ This document outlines the implementation tasks required to complete the AutoMoj
 
 **Test Structure**:
 ```
-source/testroots/automojo/gitlab/rest/
+source/testroots/ccai/gitlab/rest/
 ├── test_restclientbase.py
 ├── test_aspectsrest.py
 ├── test_restapigroup.py

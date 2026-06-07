@@ -152,8 +152,8 @@ Generic container for paginated results:
 
 ### Basic Usage
 ```python
-from automojo.gitlab.rest.clients.gitlabrestclient import GitLabRestClient
-from automojo.credentials.basiccredential import BasicCredential
+from ccai.gitlab.rest.clients.gitlabrestclient import GitLabRestClient
+from ccai.credentials.basiccredential import BasicCredential
 
 credential = BasicCredential("username", "password")
 client = GitLabRestClient("gitlab.example.com", credential)
@@ -164,7 +164,7 @@ admin_response = client.admin.some_operation(params)
 
 ### Advanced Usage with Aspects
 ```python
-from automojo.gitlab.rest.aspectsrest import AspectsRest, ActionPattern
+from ccai.gitlab.rest.aspectsrest import AspectsRest, ActionPattern
 
 # Configure retry behavior
 aspects = AspectsRest(
@@ -187,7 +187,7 @@ while result.paging and result.paging.request_next:
 ## File Organization
 
 ```
-source/packages/automojo/gitlab/rest/
+source/packages/ccai/gitlab/rest/
 ├── aspectsrest.py              # Execution aspects configuration
 ├── restclientbase.py           # Base REST client functionality
 ├── restapigroup.py            # Base class for API groups
