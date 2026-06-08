@@ -2,24 +2,24 @@
 
 from typing import Optional
 
-from automojo.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from automojo.github.rest.restapigroup import RestApiGroup
-from automojo.github.rest.clients.public.parameters import planlimits as parameters
-from automojo.github.rest.clients.public.responses import planlimits as responses
+from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.github.rest.restapigroup import RestApiGroup
+from ccai.github.rest.clients.public.parameters import application as parameters
+from ccai.github.rest.clients.public.responses import application as responses
 
 
-class PlanLimitsApiGroup(RestApiGroup):
+class ApplicationApiGroup(RestApiGroup):
     """
-        Operations related to plan limits
+        Operations about applications
     """
 
-    def getapiv4applicationplanlimits(self, params: Optional[parameters.PlanLimitsGetapiv4applicationplanlimitsParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.PlanLimitsGetapiv4applicationplanlimitsResponse:
+    def getapiv4applicationappearance(self, params: Optional[parameters.ApplicationGetapiv4applicationappearanceParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.ApplicationGetapiv4applicationappearanceResponse:
         """
-            Get current plan limits
+            Get the current appearance
         """
         if params is None:
-            params = parameters.PlanLimitsGetapiv4applicationplanlimitsParams()
-        call_leaf = "/application/plan_limits"
+            params = parameters.ApplicationGetapiv4applicationappearanceParams()
+        call_leaf = "/application/appearance"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
@@ -37,16 +37,16 @@ class PlanLimitsApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.PlanLimitsGetapiv4applicationplanlimitsResponse(resp)
+        result = responses.ApplicationGetapiv4applicationappearanceResponse(resp)
         return result
 
-    def putapiv4applicationplanlimits(self, params: Optional[parameters.PlanLimitsPutapiv4applicationplanlimitsParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.PlanLimitsPutapiv4applicationplanlimitsResponse:
+    def putapiv4applicationappearance(self, params: Optional[parameters.ApplicationPutapiv4applicationappearanceParams] = None, *, aspects: Optional[AspectsRest] = DEFAULT_REST_ASPECTS) -> responses.ApplicationPutapiv4applicationappearanceResponse:
         """
-            Change plan limits
+            Modify appearance
         """
         if params is None:
-            params = parameters.PlanLimitsPutapiv4applicationplanlimitsParams()
-        call_leaf = "/application/plan_limits"
+            params = parameters.ApplicationPutapiv4applicationappearanceParams()
+        call_leaf = "/application/appearance"
         path_params = params.path_params()
         if path_params:
             call_leaf = self.client.format_path(call_leaf, path_params)
@@ -64,5 +64,5 @@ class PlanLimitsApiGroup(RestApiGroup):
             context_msg=None,
             aspects=aspects,
         )
-        result = responses.PlanLimitsPutapiv4applicationplanlimitsResponse(resp)
+        result = responses.ApplicationPutapiv4applicationappearanceResponse(resp)
         return result

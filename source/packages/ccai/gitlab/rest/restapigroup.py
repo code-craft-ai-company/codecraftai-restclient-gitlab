@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 import weakref
 
 if TYPE_CHECKING:
-    from automojo.gitlab.rest.restclientbase import RestClientBase
+    from ccai.gitlab.rest.restclientbase import RestClientBase
 
 
 class RestApiGroup:
