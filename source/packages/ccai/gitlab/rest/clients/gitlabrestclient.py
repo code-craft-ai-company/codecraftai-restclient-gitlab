@@ -4,31 +4,31 @@ from typing import Optional
 
 import weakref
 
-from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from ccai.github.rest.restclientbase import RestClientBase
+from ccai.gitlab.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.gitlab.rest.restclientbase import RestClientBase
 from ccai.credentials.basecredential import BaseCredential
-from ccai.github.rest.clients.public.groups.accessrequests import AccessRequestsApiGroup
-from ccai.github.rest.clients.public.groups.admin import AdminApiGroup
-from ccai.github.rest.clients.public.groups.alertmanagement import AlertManagementApiGroup
-from ccai.github.rest.clients.public.groups.application import ApplicationApiGroup
-from ccai.github.rest.clients.public.groups.applications import ApplicationsApiGroup
-from ccai.github.rest.clients.public.groups.avatar import AvatarApiGroup
-from ccai.github.rest.clients.public.groups.badges import BadgesApiGroup
-from ccai.github.rest.clients.public.groups.batchedbackgroundmigrations import BatchedBackgroundMigrationsApiGroup
-from ccai.github.rest.clients.public.groups.branches import BranchesApiGroup
-from ccai.github.rest.clients.public.groups.broadcastmessages import BroadcastMessagesApiGroup
-from ccai.github.rest.clients.public.groups.bulkimports import BulkImportsApiGroup
-from ccai.github.rest.clients.public.groups.clusters import ClustersApiGroup
-from ccai.github.rest.clients.public.groups.jobs import JobsApiGroup
-from ccai.github.rest.clients.public.groups.metadata import MetadataApiGroup
-from ccai.github.rest.clients.public.groups.migrations import MigrationsApiGroup
-from ccai.github.rest.clients.public.groups.pipelinecomposition import PipelineCompositionApiGroup
-from ccai.github.rest.clients.public.groups.planlimits import PlanLimitsApiGroup
+from ccai.gitlab.rest.clients.groups.accessrequests import AccessRequestsApiGroup
+from ccai.gitlab.rest.clients.groups.admin import AdminApiGroup
+from ccai.gitlab.rest.clients.groups.alertmanagement import AlertManagementApiGroup
+from ccai.gitlab.rest.clients.groups.application import ApplicationApiGroup
+from ccai.gitlab.rest.clients.groups.applications import ApplicationsApiGroup
+from ccai.gitlab.rest.clients.groups.avatar import AvatarApiGroup
+from ccai.gitlab.rest.clients.groups.badges import BadgesApiGroup
+from ccai.gitlab.rest.clients.groups.batchedbackgroundmigrations import BatchedBackgroundMigrationsApiGroup
+from ccai.gitlab.rest.clients.groups.branches import BranchesApiGroup
+from ccai.gitlab.rest.clients.groups.broadcastmessages import BroadcastMessagesApiGroup
+from ccai.gitlab.rest.clients.groups.bulkimports import BulkImportsApiGroup
+from ccai.gitlab.rest.clients.groups.clusters import ClustersApiGroup
+from ccai.gitlab.rest.clients.groups.jobs import JobsApiGroup
+from ccai.gitlab.rest.clients.groups.metadata import MetadataApiGroup
+from ccai.gitlab.rest.clients.groups.migrations import MigrationsApiGroup
+from ccai.gitlab.rest.clients.groups.pipelinecomposition import PipelineCompositionApiGroup
+from ccai.gitlab.rest.clients.groups.planlimits import PlanLimitsApiGroup
 
 
 class GitLabRestClient(RestClientBase):
     """
-        GitHub public REST API client generated from the OpenAPI specification.
+        GitLab REST API client generated from the OpenAPI specification.
     """
     def __init__(self, host: str, credential: BaseCredential, port: Optional[int] = None, scheme: Optional[str] = "https", aspects: AspectsRest = DEFAULT_REST_ASPECTS):
         super().__init__(host, credential, port, scheme=scheme, aspects=aspects)

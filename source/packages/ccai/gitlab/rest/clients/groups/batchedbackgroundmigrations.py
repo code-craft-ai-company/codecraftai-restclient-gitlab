@@ -2,10 +2,10 @@
 
 from typing import Optional
 
-from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from ccai.github.rest.restapigroup import RestApiGroup
-from ccai.github.rest.clients.public.parameters import batchedbackgroundmigrations as parameters
-from ccai.github.rest.clients.public.responses import batchedbackgroundmigrations as responses
+from ccai.gitlab.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.gitlab.rest.restapigroup import RestApiGroup
+from ccai.gitlab.rest.clients.parameters import batchedbackgroundmigrations as parameters
+from ccai.gitlab.rest.clients.responses import batchedbackgroundmigrations as responses
 
 
 class BatchedBackgroundMigrationsApiGroup(RestApiGroup):

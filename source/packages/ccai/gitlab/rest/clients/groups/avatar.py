@@ -2,10 +2,10 @@
 
 from typing import Optional
 
-from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from ccai.github.rest.restapigroup import RestApiGroup
-from ccai.github.rest.clients.public.parameters import avatar as parameters
-from ccai.github.rest.clients.public.responses import avatar as responses
+from ccai.gitlab.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.gitlab.rest.restapigroup import RestApiGroup
+from ccai.gitlab.rest.clients.parameters import avatar as parameters
+from ccai.gitlab.rest.clients.responses import avatar as responses
 
 
 class AvatarApiGroup(RestApiGroup):

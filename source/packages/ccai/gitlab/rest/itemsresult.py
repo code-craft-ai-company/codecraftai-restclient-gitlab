@@ -15,7 +15,7 @@ from typing import Any, Callable, Dict, Generic, List, Optional, TypeVar, Union
 
 from requests import Response
 
-from ccai.github.rest.aspectsrest import AspectsRest
+from ccai.gitlab.rest.aspectsrest import AspectsRest
 
 
 CT = TypeVar("CT")

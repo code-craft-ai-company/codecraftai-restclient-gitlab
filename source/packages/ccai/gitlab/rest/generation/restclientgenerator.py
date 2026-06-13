@@ -409,10 +409,10 @@ class RestClientGenerator:
         module_lines: List[str] = [AUTO_GENERATED_BANNER]
         module_lines.append("from typing import Optional")
         module_lines.append("")
-        module_lines.append("from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS")
-        module_lines.append("from ccai.github.rest.restapigroup import RestApiGroup")
-        module_lines.append(f"from ccai.github.rest.clients.public.parameters import {slug} as parameters")
-        module_lines.append(f"from ccai.github.rest.clients.public.responses import {slug} as responses")
+        module_lines.append("from ccai.gitlab.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS")
+        module_lines.append("from ccai.gitlab.rest.restapigroup import RestApiGroup")
+        module_lines.append(f"from ccai.gitlab.rest.clients.parameters import {slug} as parameters")
+        module_lines.append(f"from ccai.gitlab.rest.clients.responses import {slug} as responses")
         module_lines.append("")
         module_lines.append("")
         module_lines.append(f"class {class_name}(RestApiGroup):")
@@ -471,13 +471,13 @@ class RestClientGenerator:
         imports.append("")
         imports.append("import weakref")
         imports.append("")
-        imports.append("from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS")
-        imports.append("from ccai.github.rest.restclientbase import RestClientBase")
+        imports.append("from ccai.gitlab.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS")
+        imports.append("from ccai.gitlab.rest.restclientbase import RestClientBase")
         imports.append("from ccai.credentials.basecredential import BaseCredential")
 
         for group in sorted_groups:
             gclass = f"{self._safe_pascal(group)}ApiGroup"
-            gmodule = f"ccai.github.rest.clients.public.groups.{self._file_slug(group)}"
+            gmodule = f"ccai.gitlab.rest.clients.groups.{self._file_slug(group)}"
             imports.append(f"from {gmodule} import {gclass}")
 
         imports.append("")

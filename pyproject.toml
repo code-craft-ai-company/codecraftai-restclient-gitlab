@@ -1,19 +1,19 @@
 [tool.poetry]
-name = "<package name>"
-description = "<package description>"
+name = "codecraftai-gitlab"
+description = "Code Craft AI - GitLab REST Client"
 version = "0.0.1"
-authors = []
+authors = ["Myron Walker <myron.walker@gmail.com>"]
 readme = "README.rst"
-license = "LICENSE.txt"
+license = "LicenseRef-CodeCraftAI-Dual-License"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "License :: Other/Proprietary License",
     "Operating System :: POSIX"
 ]
 keywords = [
     "python"
 ]
-packages = [{include="mojo", from="source/packages"}]
+packages = [{include="ccai", from="source/packages"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
@@ -23,8 +23,7 @@ codecraftai-errors = { git = "https://github.com/automationmojo/codecraftai-erro
 codecraftai-credentials = { git = "https://github.com/automationmojo/codecraftai-credentials.git", branch = "main" }
 
 [tool.poetry.group.dev.dependencies]
-
-[tool.poetry.group.dbio.dependencies]
+pytest = "^9.0.2"
 
 [build-system]
 requires = ["poetry-core"]

@@ -2,10 +2,10 @@
 
 from typing import Optional
 
-from ccai.github.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
-from ccai.github.rest.restapigroup import RestApiGroup
-from ccai.github.rest.clients.public.parameters import admin as parameters
-from ccai.github.rest.clients.public.responses import admin as responses
+from ccai.gitlab.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
+from ccai.gitlab.rest.restapigroup import RestApiGroup
+from ccai.gitlab.rest.clients.parameters import admin as parameters
+from ccai.gitlab.rest.clients.responses import admin as responses
 
 
 class AdminApiGroup(RestApiGroup):

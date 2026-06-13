@@ -20,6 +20,7 @@ import time
 
 from base64 import b64encode
 from http import HTTPStatus
+from urllib.parse import quote
 
 from requests import Session, Response, Request
 from requests.adapters import HTTPAdapter
@@ -30,9 +31,9 @@ from ccai.errors.raising import format_http_error_message, raise_for_http_status
 from ccai.credentials.basecredential import BaseCredential
 from ccai.credentials.basiccredential import BasicCredential
 
-from ccai.github.rest.aspectsrest import AspectsRest, LoggingPattern, DEFAULT_REST_ASPECTS
+from ccai.gitlab.rest.aspectsrest import AspectsRest, LoggingPattern, DEFAULT_REST_ASPECTS
 
-from ccai.github.rest.aspectsrest import ActionPattern
+from ccai.gitlab.rest.aspectsrest import ActionPattern
 
 
 class RestClientBase:
@@ -175,6 +176,32 @@ class RestClientBase:
             raise RuntimeError(errmsg)
 
         return response
+
+
+    def format_path(self, leaf: str, path_params: Dict[str, str]) -> str:
+        """
+            Substitute templated path parameters into an API leaf.
+
+            Each ``{name}`` placeholder in ``leaf`` is replaced with the
+            URL-encoded value supplied in ``path_params``.  Values are quoted
+            with an empty ``safe`` set so that reserved characters in a value
+            (for example a ``/`` in a branch name) cannot escape their path
+            segment and alter the request target.
+
+            :param leaf: API path template containing ``{name}`` placeholders.
+            :param path_params: Mapping of placeholder name to value.
+
+            :returns: The leaf with all supplied placeholders substituted.
+        """
+
+        formatted_leaf = leaf
+
+        for param_name, param_value in path_params.items():
+            placeholder = "{" + param_name + "}"
+            encoded_value = quote(str(param_value), safe="")
+            formatted_leaf = formatted_leaf.replace(placeholder, encoded_value)
+
+        return formatted_leaf
 
 
     def _format_call_url(self, leaf) -> str:
