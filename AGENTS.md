@@ -25,7 +25,7 @@ that are well design, cohesive, and easy to use and that provide rapid but stabl
 - Always prioritize the reuse of code from 'codecraftai-*' packages over rewriting functionality
 
 # Project Overview
-The `codecraftai-gitlab` package is the GitLab REST client for the ccai
+The `codecraftai-restclient-gitlab` package is the GitLab REST client for the ccai
 suite. It follows the same shape as `codecraftai-restclient-github-public` —
 building on `codecraftai-restclient-base` — but targets the GitLab REST API
 instead.

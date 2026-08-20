@@ -2,7 +2,7 @@
 Code Craft AI GitLab
 =======================
 
-The ``codecraftai-gitlab`` package is the GitLab REST client for the ccai suite. It follows the same shape as ``codecraftai-restclient-github-public`` — building on ``codecraftai-restclient-base`` — but targets the GitLab REST API instead.
+The ``codecraftai-restclient-gitlab`` package is the GitLab REST client for the ccai suite. It follows the same shape as ``codecraftai-restclient-github-public`` — building on ``codecraftai-restclient-base`` — but targets the GitLab REST API instead.
 
 Highlights
 ==========

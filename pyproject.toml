@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "codecraftai-gitlab"
+name = "codecraftai-restclient-gitlab"
 description = "Code Craft AI - GitLab REST Client"
 version = "0.0.1"
 authors = ["Myron Walker <myron.walker@gmail.com>"]
