@@ -21,6 +21,8 @@ from enum import IntEnum
 
 from requests import Session
 
+from ccai.aspects.aspects import Aspects as AspectsBase
+
 class ActionPattern(IntEnum):
     """
         An action pattern to use when using aspects to change the behavior of an API.
@@ -62,7 +64,7 @@ DEFAULT_MUST_CONNECT = False
 DEFAULT_ALLOWED_ERROR_CODES: List[int] = []
 
 
-class AspectsRest:
+class AspectsRest(AspectsBase):
     """
         Aspects container specialized for REST operations.
     """
@@ -97,10 +99,10 @@ class AspectsRest:
             :param session: Requests session to reuse.
         """
         
+        super().__init__(completion_interval=completion_interval, completion_timeout=completion_timeout,
+                         connection_timeout=connection_timeout)
+
         self.action_pattern=action_pattern
-        self.completion_timeout=completion_timeout
-        self.completion_interval=completion_interval
-        self.connection_timeout=connection_timeout
         self.inactivity_timeout=inactivity_timeout
         self.monitor_delay=monitor_delay
         self.logging_pattern=logging_pattern
@@ -110,6 +112,8 @@ class AspectsRest:
         self.must_connect=must_connect
         self.logger=logger
         self.session = session
+
+        self.freeze()
         return
 
 
