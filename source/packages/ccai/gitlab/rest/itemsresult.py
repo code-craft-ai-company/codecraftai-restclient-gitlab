@@ -83,6 +83,15 @@ class PreCannedRequest(Generic[CT]):
 
         return result
 
+    @property
+    def leaf(self) -> str:
+        """
+            API leaf path for the stored call.
+
+            :returns: Leaf path string.
+        """
+        return self._leaf
+
 
 class Paging:
     """
