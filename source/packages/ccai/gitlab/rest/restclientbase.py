@@ -15,6 +15,7 @@ __credits__ = []
 
 from typing import Dict, List, Optional, Union
 
+import logging
 import os
 import time
 
@@ -74,6 +75,8 @@ class RestClientBase:
             self._host_url = f"{self._host_url}:{port}"
 
         self._session: Session = None
+
+        self._logger = logging.getLogger(__name__)
         return
     
     @property
@@ -240,6 +243,25 @@ class RestClientBase:
         return session
 
 
+    def _resolve_logger(self, aspects: AspectsRest) -> logging.Logger:
+        """
+            Select the logger for a call: the one carried by ``aspects`` when it
+            has one, otherwise this module's logger.  The default aspects carry
+            no logger, so without the fallback every retry or error log call
+            would fail with ``AttributeError`` instead of reporting the problem.
+
+            :param aspects: Execution aspects that may supply a logger.
+
+            :returns: The logger to use for the call.
+        """
+
+        logger = aspects.logger
+        if logger is None:
+            logger = self._logger
+
+        return logger
+
+
     def _perform_single_call(self, leaf: str, method: str, params: Union[Dict[str, str], None], body: Union[Dict[str, str], None],
                              exp_status: Union[int, List[int]], headers: Union[Dict[str, str], None],
                              context_msg: Union[str, None], aspects: AspectsRest) -> Response:
@@ -266,7 +288,7 @@ class RestClientBase:
 
         call_url = self._format_call_url(leaf)
 
-        logger = aspects.logger
+        logger = self._resolve_logger(aspects)
 
         send_timeouts = (aspects.connection_timeout, aspects.inactivity_timeout)
         allowed_error_codes: List[int] = aspects.allowed_error_codes
@@ -327,7 +349,7 @@ class RestClientBase:
 
         call_url = self._format_call_url(leaf)
 
-        logger = aspects.logger
+        logger = self._resolve_logger(aspects)
 
         send_timeouts = (aspects.connection_timeout, aspects.inactivity_timeout)
         completion_timeout: float = aspects.completion_timeout
@@ -415,7 +437,7 @@ class RestClientBase:
 
         call_url = self._format_call_url(leaf)
 
-        logger = aspects.logger
+        logger = self._resolve_logger(aspects)
 
         send_timeouts = (aspects.connection_timeout, aspects.inactivity_timeout)
         completion_timeout: float = aspects.completion_timeout
@@ -485,7 +507,7 @@ class RestClientBase:
 
         call_url = self._format_call_url(leaf)
 
-        logger = aspects.logger
+        logger = self._resolve_logger(aspects)
 
         send_timeouts = (aspects.connection_timeout, aspects.inactivity_timeout)
         completion_timeout: float = aspects.completion_timeout
@@ -575,7 +597,7 @@ class RestClientBase:
 
         call_url = self._format_call_url(leaf)
 
-        logger = aspects.logger
+        logger = self._resolve_logger(aspects)
 
         send_timeouts = (aspects.connection_timeout, aspects.inactivity_timeout)
         completion_timeout: float = aspects.completion_timeout
