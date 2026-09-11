@@ -23,7 +23,6 @@ dependencies = [
 [dependency-groups]
 dev = [
     "codecraftai-testbase<2.0.0",
-    "pytest>=9.0.2,<10.0.0",
 ]
 
 [tool.poetry]
