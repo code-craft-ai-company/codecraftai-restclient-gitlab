@@ -124,9 +124,9 @@ class RestClientBase:
         if resp.status_code != HTTPStatus.OK:
             errmsg_lines = [
                 f"Error attempting to authenticate on url={auth_url}.",
-                f"STATUS: {resp.status_code}"
+                f"STATUS: {resp.status_code}",
                 "RESPONSE:",
-                resp.content
+                resp.text
             ]
             errmsg = os.linesep.join(errmsg_lines)
             raise HttpForbiddenError(errmsg)
