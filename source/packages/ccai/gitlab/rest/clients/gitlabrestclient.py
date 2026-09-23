@@ -2,8 +2,6 @@
 
 from typing import Optional
 
-import weakref
-
 from ccai.gitlab.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS
 from ccai.gitlab.rest.restclientbase import RestClientBase
 from ccai.credentials.basecredential import BaseCredential

@@ -165,6 +165,8 @@ def test_perform_call_single_call_logs_error_to_aspects_logger() -> None:
             client.perform_call(leaf="/projects/1", method="GET", params=None, body=None,
                                 exp_status=200, aspects=aspects)
         except HttpInternalServerError:
+            # The 500 error is the expected outcome of the call; this test only
+            # verifies what was logged to the aspects logger before it was raised.
             pass
     finally:
         logger.removeHandler(handler)

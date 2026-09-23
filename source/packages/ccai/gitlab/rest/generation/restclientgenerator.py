@@ -12,6 +12,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import argparse
+import ast
 import json
 import keyword
 import re
@@ -295,10 +296,9 @@ class RestClientGenerator:
 
     def _generate_parameter_module(self, group: str, ops: List[OperationSpec], params_dir: Path):
         slug = self._file_slug(group)
-        module_lines: List[str] = [AUTO_GENERATED_BANNER]
-        module_lines.append("from dataclasses import dataclass")
-        module_lines.append("from typing import Any, Dict, List, Optional")
-        module_lines.append("")
+
+        # Generate the dataclasses first so the typing import can be limited to the names they reference.
+        module_lines: List[str] = []
 
         for op in ops:
             class_name = f"{self._safe_pascal(group)}{self._safe_pascal(op.method_name)}Params"
@@ -363,6 +363,15 @@ class RestClientGenerator:
                     module_lines.append("        return None")
             module_lines.append("")
 
+        body_text = "\n".join(module_lines)
+        header_lines: List[str] = [AUTO_GENERATED_BANNER]
+        header_lines.append("from dataclasses import dataclass")
+        typing_statement = self._typing_import_statement(["Any", "Dict", "List", "Optional"], body_text)
+        if typing_statement is not None:
+            header_lines.append(typing_statement)
+        header_lines.append("")
+        module_lines = header_lines + module_lines
+
         content = "\n".join(module_lines).rstrip() + "\n"
         out_path = params_dir / f"{slug}.py"
         self._write_file(out_path, content)
@@ -371,7 +380,7 @@ class RestClientGenerator:
     def _generate_response_module(self, group: str, ops: List[OperationSpec], responses_dir: Path):
         slug = self._file_slug(group)
         module_lines: List[str] = [AUTO_GENERATED_BANNER]
-        module_lines.append("from typing import Any, Dict, Optional")
+        module_lines.append("from typing import Any, Dict")
         module_lines.append("")
         module_lines.append("from requests import Response")
         module_lines.append("")
@@ -469,8 +478,6 @@ class RestClientGenerator:
         imports: List[str] = [AUTO_GENERATED_BANNER]
         imports.append("from typing import Optional")
         imports.append("")
-        imports.append("import weakref")
-        imports.append("")
         imports.append("from ccai.gitlab.rest.aspectsrest import AspectsRest, DEFAULT_REST_ASPECTS")
         imports.append("from ccai.gitlab.rest.restclientbase import RestClientBase")
         imports.append("from ccai.credentials.basecredential import BaseCredential")
@@ -517,6 +524,33 @@ class RestClientGenerator:
             return
         init_file.write_text("", encoding="utf-8")
         return
+
+    def _typing_import_statement(self, candidate_names: List[str], body_text: str) -> Optional[str]:
+        """
+            Creates a 'from typing import ...' statement containing only the candidate names that the generated
+            module body references.
+
+            :param candidate_names: The typing names the body might use.
+            :param body_text: The generated module body.
+
+            :returns: The import statement, or None when the body references none of the candidate names.
+        """
+        referenced_names = set()
+        tree = ast.parse(body_text)
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Name):
+                referenced_names.add(node.id)
+
+        used_names = []
+        for name in candidate_names:
+            if name in referenced_names:
+                used_names.append(name)
+
+        statement = None
+        if len(used_names) > 0:
+            statement = "from typing import {}".format(", ".join(used_names))
+
+        return statement
 
     def _write_file(self, path: Path, content: str):
         path.write_text(content, encoding="utf-8")

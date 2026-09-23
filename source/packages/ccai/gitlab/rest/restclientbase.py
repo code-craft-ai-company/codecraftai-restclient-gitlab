@@ -24,7 +24,6 @@ from http import HTTPStatus
 from urllib.parse import quote
 
 from requests import Session, Response, Request
-from requests.adapters import HTTPAdapter
 
 from ccai.errors.exceptions import HttpForbiddenError
 from ccai.errors.raising import format_http_error_message, raise_for_http_status
